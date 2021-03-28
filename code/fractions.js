@@ -121,25 +121,25 @@ const Fraction = {
 // It gets one part and calculates the GCD. Take them out and put the new result
 // It repeats that process until we have the final GCD.
 
-gcd: (array) => {
+    gcd: (array) => {
 
-    if (validate(array)) return NaN;
-    const simplified = array.map(a => Fraction.simp(a));
+        if (validate(array)) return NaN;
+        const simplified = array.map(a => Fraction.simp(a));
 
-    for (;;) {
-        const part = simplified.slice(0, 2);
+        for (;;) {
+            const part = simplified.slice(0, 2);
 
-            for (;;) {
-                Fraction.sort(part)
-                const result = Fraction.sub(part);
+                for (;;) {
+                    Fraction.sort(part)
+                    const result = Fraction.sub(part);
 
-                    if (Fraction.deci(result) == 0) {
-                        simplified.splice(0, 2, part[1]);
-                        break;
-                    }; 
+                        if (Fraction.deci(result) == 0) {
+                            simplified.splice(0, 2, part[1]);
+                            break;
+                        }; 
 
-                    const index = part.indexOf(Fraction.max(...part));
-                     part[index] = result;
+                        const index = part.indexOf(Fraction.max(...part));
+                         part[index] = result;
                 };
 
             if (simplified.length == 1) return simplified[0]
