@@ -247,8 +247,6 @@ const Fraction = {
 
 export { Fraction };
 
-
-
 // Private functions
 
 
